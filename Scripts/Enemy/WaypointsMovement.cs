@@ -7,6 +7,7 @@ public class WaypointsMovement : MonoBehaviour
     [SerializeField] Enemy _enemy;
     [SerializeField] private Transform _enemyPath;
     [SerializeField] private float _speed;
+
     private List<Transform> _points = new List<Transform>();
     private int _currentPoint = 0;
     
@@ -35,5 +36,3 @@ public class WaypointsMovement : MonoBehaviour
         }
     }
 }
-
-
