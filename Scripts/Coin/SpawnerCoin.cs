@@ -16,7 +16,7 @@ public class SpawnerCoin : MonoBehaviour
         _instCoin = Instantiate(_coin, new Vector3(_cointPoints[_currentPoint].position.x, _cointPoints[_currentPoint].position.y), Quaternion.identity);
     }
 
-    void Update()
+    private void Update()
     {
         if (_instCoin.IsDestroy)
         {
