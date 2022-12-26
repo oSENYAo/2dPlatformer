@@ -1,0 +1,8 @@
+public static class PersonAnimator
+{
+    public static class States 
+    {
+        public const string IdleTrigger = "idleTrigger";
+        public const string RunTrigger = "runTrigger";
+    }
+}
