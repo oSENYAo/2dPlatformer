@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Coin : MonoBehaviour
 {
-    public UnityAction Destroyed;
+    public event UnityAction Destroyed;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
