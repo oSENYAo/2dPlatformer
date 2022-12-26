@@ -11,23 +11,32 @@ public class SpawnerCoin : MonoBehaviour
     private Coin _instCoin;
     private int _currentPoint = 0;
 
-    private void Start()
+    private void OnDisable()
     {
-        _instCoin = Instantiate(_coin, new Vector3(_cointPoints[_currentPoint].position.x, _cointPoints[_currentPoint].position.y), Quaternion.identity);
+        _instCoin.Destroyed -= OnDestroyed;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (_instCoin.IsDestroy)
-        {
-            _currentPoint++;
-            
-            if (_currentPoint >= _cointPoints.Count)
-            {
-                _currentPoint = 0;
-            }
+        Spawn();
+    }
 
-            _instCoin = Instantiate(_coin, new Vector3(_cointPoints[_currentPoint].position.x, _cointPoints[_currentPoint].position.y), Quaternion.identity);
+    private void Spawn()
+    {
+        _instCoin = Instantiate(_coin, new Vector3(_cointPoints[_currentPoint].position.x, _cointPoints[_currentPoint].position.y), Quaternion.identity);
+
+        _instCoin.Destroyed += OnDestroyed;
+    }
+
+    private void OnDestroyed()
+    {
+        _currentPoint++;
+
+        if (_currentPoint >= _cointPoints.Count)
+        {
+            _currentPoint = 0;
         }
+
+        Spawn();
     }
 }
