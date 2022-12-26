@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaypointsMovement : MonoBehaviour
 {
-    [SerializeField] Enemy _enemy;
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private Transform _enemyPath;
     [SerializeField] private float _speed;
 
