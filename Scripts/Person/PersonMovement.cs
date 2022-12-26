@@ -19,7 +19,7 @@ public class PersonMovement : MonoBehaviour
     private void Update()
     {
         _inputHorizontal = Input.GetAxis("Horizontal");
-
+        
         if (_inputHorizontal < 0)
         {
             Run(-1);
@@ -33,13 +33,13 @@ public class PersonMovement : MonoBehaviour
 
         if (_inputHorizontal != 0)
         {
-            _animator.ResetTrigger("idleTrigger");
-            _animator.SetTrigger("runTrigger");
+            _animator.ResetTrigger(Animator.StringToHash(PersonAnimator.States.IdleTrigger));
+            _animator.SetTrigger(Animator.StringToHash(PersonAnimator.States.RunTrigger));
         }
         else
         {
-            _animator.ResetTrigger("runTrigger");
-            _animator.SetTrigger("idleTrigger");
+            _animator.ResetTrigger(Animator.StringToHash(PersonAnimator.States.RunTrigger));
+            _animator.SetTrigger(Animator.StringToHash(PersonAnimator.States.IdleTrigger));
         }
     }
 
@@ -54,8 +54,3 @@ public class PersonMovement : MonoBehaviour
         transform.Translate(Vector3.up * _heightOfJump * jumpValue * Time.deltaTime);
     }
 }
-
-
-
-
-
