@@ -6,7 +6,7 @@ public class CoinAnimation : MonoBehaviour
     [SerializeField] private float _duration;
     [SerializeField] private float _delay;
 
-    private void Update()
+    private void Start()
     {
         int loopsValue = -1;
         float rotateValueToY = 75;
